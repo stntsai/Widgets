@@ -1,8 +1,8 @@
 import React from 'react';
+import axios from  'axios';
 import Accordion from './components/Accordion';
 import Search from './components/Search';
-import axios from  'axios';
-
+import Dropdown from './components/Dropdown';
 
 export default ()=>{
 
@@ -23,7 +23,7 @@ export default ()=>{
 
     return (
         <div className="ui container">
-            <Search />
+            <Dropdown />
         </div>
     )
 };
