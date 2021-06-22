@@ -3,6 +3,7 @@ import axios from  'axios';
 import Accordion from './components/Accordion';
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
+import './App.css'
 
 const items=[
     {
@@ -40,6 +41,7 @@ const options=[
 export default ()=>{
     const [selected, setSelected] = useState(options[0])
     const [showDropdown, setShowDropdown] = useState(true)
+    console.log(selected.value)
     return (
         <div className="ui container">
             <button onClick={()=>setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
@@ -49,7 +51,8 @@ export default ()=>{
                     onSelectedChange={setSelected} 
                     options={options}
                 />:null
-            }     
+            }    
+            <h1 className={`colored-text ${selected.value}`}>This is the color you want</h1>    
         </div>
     )    
 };
