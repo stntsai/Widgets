@@ -5,6 +5,7 @@ import Search from './components/Search';
 import Dropdown from './components/Dropdown';
 import Translate from './components/Translate';
 import Route from './components/Route';
+import Header from './components/Header';
 import './App.css'
 
 
@@ -44,24 +45,27 @@ const options=[
 export default ()=>{
     const [selected, setSelectd] = useState(options[0]);
     return (
-        <div className="ui container">
-            <Route path="/">
-                <Accordion items={items}/>
-            </Route>
-            <Route path ="/list">
-                <Search />
-            </Route>
-            <Route path ="/dropdown">
-                <Dropdown 
-                    label="Select a Color" 
-                    options={options} 
-                    selected={selected} 
-                    onSelectedChange={setSelectd}
-                />
-            </Route>
-            <Route path="/translate">
-                <Translate />
-            </Route>
+        <div>
+            <Header />
+            <div className="ui container">
+                <Route path="/">
+                    <Accordion items={items}/>
+                </Route>
+                <Route path ="/list">
+                    <Search />
+                </Route>
+                <Route path ="/dropdown">
+                    <Dropdown 
+                        label="Select a Color" 
+                        options={options} 
+                        selected={selected} 
+                        onSelectedChange={setSelectd}
+                    />
+                </Route>
+                <Route path="/translate">
+                    <Translate />
+                </Route>
+            </div>
         </div>
     )
 };

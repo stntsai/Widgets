@@ -39,9 +39,10 @@ const Dropdown =({label, options, selected, onSelectedChange})=>{
                     </div>
                 </div>
             </div>
+            {label=="Select a Color"?
             <div>
                 <h1 className={`colored-text ${selected.value}`}>This is the color</h1>
-            </div>
+            </div> : null}
         </div>
         
     )
