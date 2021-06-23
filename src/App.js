@@ -4,7 +4,9 @@ import Accordion from './components/Accordion';
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
 import Translate from './components/Translate';
+import Route from './components/Route';
 import './App.css'
+
 
 const items=[
     {
@@ -40,22 +42,26 @@ const options=[
     
 
 export default ()=>{
-
-    return <Translate />
-    // const [selected, setSelected] = useState(options[0])
-    // const [showDropdown, setShowDropdown] = useState(true)
-
-    // return (
-    //     <div className="ui container">
-    //         <button onClick={()=>setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
-    //         {showDropdown ? 
-    //             <Dropdown 
-    //                 selected={selected} 
-    //                 onSelectedChange={setSelected} 
-    //                 options={options}
-    //             />:null
-    //         }    
-    //         <h1 className={`colored-text ${selected.value}`}>This is the color you want</h1>    
-    //     </div>
-    // )    
+    const [selected, setSelectd] = useState(options[0]);
+    return (
+        <div className="ui container">
+            <Route path="/">
+                <Accordion items={items}/>
+            </Route>
+            <Route path ="/list">
+                <Search />
+            </Route>
+            <Route path ="/dropdown">
+                <Dropdown 
+                    label="Select a Color" 
+                    options={options} 
+                    selected={selected} 
+                    onSelectedChange={setSelectd}
+                />
+            </Route>
+            <Route path="/translate">
+                <Translate />
+            </Route>
+        </div>
+    )
 };

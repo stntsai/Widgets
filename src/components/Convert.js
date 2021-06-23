@@ -16,7 +16,6 @@ const Convert=({text,language})=>{
             })
             setTranslated(data.data.translations[0].translatedText)
         }
-        // const timerID = setTimeout()
         doTranslation();
     },[text,language])
     return(
